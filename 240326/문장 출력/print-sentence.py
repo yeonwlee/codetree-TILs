@@ -1,1 +1,1 @@
-primt("Hello World!")
+print("Hello World!")
