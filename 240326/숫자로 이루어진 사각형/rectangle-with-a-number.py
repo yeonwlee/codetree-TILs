@@ -1,16 +1,11 @@
-length_of_one_line: int = int(input())
+from itertools import cycle
 
 
 def print_rect(length_of_one_line: int) -> None:
-    cur_num: int = 1
+    number_cycle = cycle(range(1, 10))
     for _ in range(length_of_one_line):
-        count: int = 0
-        while (count:= count + 1) <= length_of_one_line:
-            print(cur_num, end=' ')
-            cur_num += 1
-            if cur_num > 9:
-                cur_num = 1
-        print()
+        line = [str(next(number_cycle)) for _ in range(length_of_one_line)]
+        print(' '.join(line))
 
-
+length_of_one_line: int = int(input())
 print_rect(length_of_one_line)
