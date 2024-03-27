@@ -10,7 +10,7 @@ def is_valid_date(month: int, date: int) -> bool:
 
 
 def get_season(month: int) -> str:
-    if month in {3, 4, 5}:
+    if month in {3, 4, 5}: #조회 속도는 set이 더 빠르겠지만, 맥락적으로는 튜플이 더 어울릴 수 있음 
         return "Spring"
     elif month in {6, 7, 8}:
         return "Summer"
