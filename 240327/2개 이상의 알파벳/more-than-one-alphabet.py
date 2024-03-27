@@ -4,7 +4,7 @@
 #     return len(set(string)) >= 2
 
 def check_it_has_different_chars(string: str) -> bool: 
-    unique_chars = {}
+    unique_chars = set()
     for char in string:
         unique_chars.add(char)
         if len(unique_chars) >= 2:
@@ -12,5 +12,5 @@ def check_it_has_different_chars(string: str) -> bool:
     return False
 
 
-string_list = input()
-print("Yes" if check_it_has_different_chars(string_list) else "No")
+string = input()
+print("Yes" if check_it_has_different_chars(string) else "No")
