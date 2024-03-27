@@ -7,7 +7,7 @@ def minus(num1: int, num2: int) -> None:
 
 
 def divide(num1: int, num2: int) -> None:
-    print(f"{num1} / {num2} = {num1 / num2}")
+    print(f"{num1} / {num2} = {num1 // num2}")
 
 
 def multiply(num1: int, num2: int) -> None:
