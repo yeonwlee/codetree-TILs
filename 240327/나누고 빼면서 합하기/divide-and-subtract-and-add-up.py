@@ -3,11 +3,11 @@
 
 end_index_value:int = 1 # target_index 
 
-def get_next_calculation_position(cur_index: int) -> int:    
-    if cur_index % 2 == 0:
-        return cur_index // 2
+def get_next_calculation_position(cur_position: int) -> int:    
+    if cur_position % 2 == 0:
+        return cur_position // 2
     else:
-        return cur_index - 1
+        return cur_position - 1
 
 
 # 1번째 원소까지 값을 구한 다음에 그다음에 종료하나봄 + '번째'라는게 인덱스가 아님..
