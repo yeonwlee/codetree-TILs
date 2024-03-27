@@ -7,7 +7,7 @@
 
 
 def is_target_value(number: int) -> bool:
-    return number % 2 != 0 and number % 10 != 5 and (number % 9 == 0 or number % 3 != 0)
+    return number % 2 != 0 and number % 10 != 5 and not (number % 3 == 0 and number % 9 != 0)
 
 
 a, b = map(int, input().split())
