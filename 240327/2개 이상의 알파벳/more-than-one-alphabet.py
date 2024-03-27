@@ -7,7 +7,7 @@ def check_it_has_different_chars(string: str) -> bool:
     unique_chars = {}
     for char in string:
         unique_chars.add(char)
-        if len(unique_chars >= 2)
+        if len(unique_chars) >= 2:
             return True
     return False
 
