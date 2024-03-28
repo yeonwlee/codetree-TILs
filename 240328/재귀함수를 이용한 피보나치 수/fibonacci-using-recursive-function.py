@@ -1,10 +1,10 @@
-# def nth_of_fibonacci(nth: int) -> None:
+# def nth_of_fibonacci(nth: int) -> int:
 #     elif nth <= 2:
 #         return 1
     
 #     return nth_of_fibonacci(nth - 2) + nth_of_fibonacci(nth - 1)
 
-def nth_of_fibonacci(nth: int, info:dict=None) -> None:
+def nth_of_fibonacci(nth: int, info:dict=None) -> int:
     if info is None:
         info = {1:1, 2:1}
     
