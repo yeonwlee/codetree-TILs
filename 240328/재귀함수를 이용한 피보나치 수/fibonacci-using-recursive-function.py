@@ -10,8 +10,8 @@ def nth_of_fibonacci(nth: int, info:dict=None) -> None:
     
     if nth in info:
         return info[nth]
-        
-    return nth_of_fibonacci(nth - 2) + nth_of_fibonacci(nth - 1)
+
+    return nth_of_fibonacci(nth - 2, info) + nth_of_fibonacci(nth - 1, info)
 
 
 nth = int(input())
