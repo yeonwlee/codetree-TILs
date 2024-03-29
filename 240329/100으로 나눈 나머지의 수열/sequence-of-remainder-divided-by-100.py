@@ -5,9 +5,6 @@
 def solution(index: int, memory_dict:dict[int, int]=None) -> int:
     if memory_dict is None:
         memory_dict = {0:2, 1:4}
-    
-    if index < 0:
-        return 1
 
     if index not in memory_dict:
         memory_dict[index] = solution(index - 1, memory_dict) * solution(index - 2, memory_dict) % 100
