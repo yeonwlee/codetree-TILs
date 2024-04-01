@@ -7,7 +7,7 @@ class People():
     def print_data(self):
         print(f"name {self.name}")
         print(f"addr {self.addr}")
-        print(f"city {city}")
+        print(f"city {self.city}")
 
     
 num_of_people = int(input())
