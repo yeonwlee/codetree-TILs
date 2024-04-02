@@ -1,12 +1,12 @@
 class Student:
     def __init__(self, name, subject1, subject2, subject3):
         self.name = name
-        self.subject1 = subject1
-        self.subject2 = subject2
-        self.subject3 = subject3
+        self.subject1 = int(subject1)
+        self.subject2 = int(subject2)
+        self.subject3 = int(subject3)
 
     def sum_points(self):
-        return sum(int(getattr(self, attr)) for attr in ['subject1', 'subject2', 'subject3'])
+        return sum(getattr(self, attr) for attr in ['subject1', 'subject2', 'subject3'])
 
 
 num_of_students = int(input())
