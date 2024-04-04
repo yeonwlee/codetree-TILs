@@ -1,4 +1,6 @@
 digit_num = int(input())
+
+#bin
 #print(bin(digit_num)[2:])
 
 def make_binary_num(num: int) -> None:
