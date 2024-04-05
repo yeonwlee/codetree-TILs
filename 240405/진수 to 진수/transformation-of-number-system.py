@@ -9,5 +9,5 @@ while number_decimal >= b_base:
     result.append(remain)
 result.append(number_decimal)
 
-for index in range(len(result) - 1, -1, -1):
-    print(result[index], end="")
+for num in reversed(result):
+    print(num, end="")
