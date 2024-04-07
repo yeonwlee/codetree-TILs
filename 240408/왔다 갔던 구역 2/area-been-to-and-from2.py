@@ -11,7 +11,7 @@ cur_position = 0
 for x, direction in commands:
     x = int(x)
     if direction == "L":
-        for index in range(cur_position, cur_position - x, -1):
+        for index in range(cur_position - x, cur_position):
             point_info[index] += 1
         cur_position -= x
     else: 
@@ -19,4 +19,4 @@ for x, direction in commands:
             point_info[index] += 1
         cur_position += x
 
-print(sum(1 for index in range(len(point_info) - 1) if point_info[index] >= 2 ))
+print(sum(1 for point in point_info if point >= 2 ))
