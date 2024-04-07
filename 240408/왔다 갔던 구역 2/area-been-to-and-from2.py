@@ -19,4 +19,4 @@ for x, direction in commands:
             point_info[index] += 1
         cur_position += x
 
-print(sum(1 for point in point_info if point >= 2 ))
+print(sum(1 for index in range(len(point_info) - 1) if point_info[index] >= 2 ))
