@@ -11,7 +11,7 @@ cur_position = 0
 for x, direction in commands:
     x = int(x)
     if direction == "L":
-        for index in range(cur_position - x, cur_position):
+        for index in range(cur_position - x,  cur_position):
             point_info[index] += 1
         cur_position -= x
     else: 
