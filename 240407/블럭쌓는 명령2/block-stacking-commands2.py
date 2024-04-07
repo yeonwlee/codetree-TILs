@@ -6,7 +6,7 @@ commands = [
 ]
 
 for command in commands:
-    for index in range(command[0], command[1] + 1):
+    for index in range(command[0] - 1, command[1]):
         piled_block_info[index] += 1
 
 print(max(piled_block_info))
