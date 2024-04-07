@@ -15,7 +15,7 @@ for x, direction in commands:
             point_info[index] += 1
         cur_position -= x
     else: 
-        for index in range(cur_position, cur_position + x):
+        for index in range(cur_position + x, cur_position, -1):
             point_info[index] += 1
         cur_position += x
 
