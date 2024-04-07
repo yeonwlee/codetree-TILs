@@ -1,12 +1,12 @@
 num_of_command = int(input())
-point_info = [0 for _ in range(101)]
+point_info = [0 for _ in range(1000)] #경우를 양수화 하기 위함
 
 commands = [
     tuple(input().split())
     for _ in range(num_of_command)
 ]
 
-cur_position = 0
+cur_position = 11
 
 for x, direction in commands:
     x = int(x)
