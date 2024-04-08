@@ -1,52 +1,58 @@
-from collections import Counter
+from enum import Enum
 
-#흰,검,회색 타일 수 각각 구하기
-def is_tile_already_dupl_colored(tile) -> bool:
-    if tile["cur_color"] == "G":
+class Color(Enum):
+    NONE = 2
+    WHITE = 3
+    BLACK = 4
+    GRAY = 5
+
+
+def be_gray_tile(tile: dict) -> bool:
+    if tile["cur_color"] == Color.GRAY.value:
         return True
-    for count in tile.values():
-        print(count)
-    return all(True for count in tile.values() if count >= 2)
+    return all(True if count >= 2 else False for count in tile.values())
 
 
 num_of_command = int(input())
-color_of_tile = [{"W": 0, "B": 0, "cur_color": 2} for _ in range(100000)]
+tile_info = [{"W":0, "B":0, "cur_color": Color.NONE.value} for _ in range(200000)]
+
 commands = [
-    input().split()
+    tuple(input().split())
     for _ in range(num_of_command)
 ]
 
-cur_position = 100
+cur_position = 100000
+
 for x, direction in commands:
     x = int(x)
-    if direction == "L":
+    if direction == "L": #왼쪽, 흰색
         for index in range(cur_position, cur_position - x, -1):
-            if is_tile_already_dupl_colored(color_of_tile[index]):
-                color_of_tile[index]["cur_color"] = "G"
+            tile_info[index]["W"] += 1
+            if be_gray_tile(tile_info[index]):
+                tile_info[index]["cur_color"] = Color.GRAY.value
             else:
-                color_of_tile[index]["W"] += 1
-                color_of_tile[index]["cur_color"] = "W"
-            cur_position -= x
-    else:
+                tile_info[index]["cur_color"] = Color.WHITE.value
+        cur_position = cur_position - x + 1
+    elif direction == "R": #오른쪽, 검은색
         for index in range(cur_position, cur_position + x):
-            if is_tile_already_dupl_colored(color_of_tile[index]):
-                color_of_tile[index]["cur_color"] = "G"
+            tile_info[index]["B"] += 1
+            if be_gray_tile(tile_info[index]):
+                tile_info[index]["cur_color"] = Color.GRAY.value
             else:
-                color_of_tile[index]["B"] += 1
-                color_of_tile[index]["cur_color"] = "B"
-            cur_position += x
+                tile_info[index]["cur_color"] = Color.BLACK.value
+        cur_position = cur_position + x - 1
 
 
 white_tile = 0
 black_tile = 0
 gray_tile = 0
 
-for tile in color_of_tile:
-    if tile["cur_color"] == "W":
+for tile in tile_info:
+    if tile["cur_color"] == Color.WHITE.value:
         white_tile += 1
-    elif tile["cur_color"] == "B":
+    elif tile["cur_color"] == Color.BLACK.value:
         black_tile += 1
-    elif tile["cur_color"] == "G":
+    elif tile["cur_color"] == Color.GRAY.value:
         gray_tile += 1
 
 print(white_tile, black_tile, gray_tile)
