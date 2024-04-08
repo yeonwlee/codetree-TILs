@@ -1,5 +1,8 @@
+OFFSET = 1000
+
 def check_rect_inner(coord, rect, check_to = 1) -> None:
     x1, y1, x2, y2 = rect
+    x1, y1, x2, y2 = x1 + OFFSET, y1 + OFFSET, x2 + OFFSET, y2 + OFFSET
     for row_index in range(x1, x2):
         for col_index in range(y1, y2):
             coord[row_index][col_index] = check_to
