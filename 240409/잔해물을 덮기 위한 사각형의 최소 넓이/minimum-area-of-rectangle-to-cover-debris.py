@@ -28,7 +28,7 @@ for row in range(x1, x2):
             remained_x.append(row)
             remained_y.append(col)
 
-minx, maxx, miny, maxy = x1, x2, y1, y2
+minx, maxx, miny, maxy = 0, 0, 0, 0
 if remained_x and remained_y:
     minx, maxx = remained_x[0], remained_x[-1] + 1 #1을 더해줘야 선분 길이가 나옴
     miny, maxy = remained_y[0], remained_y[-1] + 1
