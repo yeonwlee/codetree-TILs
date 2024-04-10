@@ -29,6 +29,8 @@ for row in range(x1, x2):
 minx, maxx = 0, 0
 miny, maxy = 0, 0
 if marked_x:
+    marked_x.sort()
+    marked_y.sort()
     minx, maxx = marked_x[0], marked_x[-1] + 1
     miny, maxy = marked_y[0], marked_y[-1] + 1
 
