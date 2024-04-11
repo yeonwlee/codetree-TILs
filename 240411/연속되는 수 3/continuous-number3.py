@@ -1,27 +1,16 @@
+def has_same_sign(a, b):
+    return a * b > 0
+
 num_of_numbers = int(input())
-numbers = [
-    int(input())
-    for _ in range(num_of_numbers)
-]
+numbers = [int(input()) for _ in range(num_of_numbers)]
 
-longest_value_count = 0
-continued_same_sign_values = []
+longest_streak = current_streak = (1 if numbers else 0)
 
-for index, number in enumerate(numbers):
-    if index == 0:
-        continued_same_sign_values.append(number)
+for i in range(1, num_of_numbers):
+    if has_same_sign(numbers[i], numbers[i-1]):
+        current_streak += 1
+        longest_streak = max(longest_streak, current_streak)
     else:
-        if ((numbers[index - 1] < 0 and number < 0) 
-            or (numbers[index - 1] > 0 and number > 0)):
-            continued_same_sign_values.append(number)
-        else: #달라진 경우
-            if longest_value_count < len(continued_same_sign_values):
-                longest_value_count = len(continued_same_sign_values)
-            continued_same_sign_values = []
-            continued_same_sign_values.append(number)
+        current_streak = 1
 
-if continued_same_sign_values:
-    if longest_value_count < len(continued_same_sign_values):
-        longest_value_count = len(continued_same_sign_values)
-
-print(longest_value_count)
+print(longest_streak)
