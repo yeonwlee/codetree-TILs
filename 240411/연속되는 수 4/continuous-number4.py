@@ -9,7 +9,6 @@ longest_continued_asc_count = cur_continued_asc_count = 1
 
 for _ in range(1, num_of_numbers):
     numbers.append(int(input()))
-    print(cur_continued_asc_count)
     if numbers[-2] < numbers[-1]:
         cur_continued_asc_count += 1
     else: #연속적으로 커지지 않은 경우
@@ -17,4 +16,7 @@ for _ in range(1, num_of_numbers):
             longest_continued_asc_count = cur_continued_asc_count
         cur_continued_asc_count = 1
 
+if longest_continued_asc_count < cur_continued_asc_count:
+    longest_continued_asc_count = cur_continued_asc_count
+     
 print(longest_continued_asc_count)
