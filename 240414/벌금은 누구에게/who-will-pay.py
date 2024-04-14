@@ -16,4 +16,4 @@ for student_id in student_punishment_info:
         first_have_to_pay_fine_student = student_id
         break
 
-print(student_id if first_have_to_pay_fine_student is not None else -1)
+print(first_have_to_pay_fine_student if first_have_to_pay_fine_student is not None else -1)
