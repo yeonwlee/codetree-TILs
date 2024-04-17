@@ -15,10 +15,13 @@ effective_infections_info = [num_of_effective_infections] * num_of_person
 #감염된 사람들끼리 악수한 경우, 둘 다 유효한 감염횟수를 차감시켜야함
 for handshaking in handshaking_info:
     _, person_x, person_y = handshaking
-    if infected_person_info[person_x - 1] and effective_infections_info[person_x - 1] > 0:
+    if infected_person_info[person_x - 1] and infected_person_info[person_y - 1]:
+        effective_infections_info[person_x - 1] -= 1
+        effective_infections_info[person_y - 1] -= 1
+    elif infected_person_info[person_x - 1] and effective_infections_info[person_x - 1] > 0:
         infected_person_info[person_y - 1] = 1
         effective_infections_info[person_x - 1] -= 1
-    if infected_person_info[person_y - 1] and effective_infections_info[person_y - 1] > 0:
+    elif infected_person_info[person_y - 1] and effective_infections_info[person_y - 1] > 0:
         infected_person_info[person_x - 1] = 1
         effective_infections_info[person_y - 1] -= 1
 
