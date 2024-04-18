@@ -16,6 +16,8 @@ for _ in range(num_of_moving):
             done = True
             break
     if done:
+        print(time)
         break
 
-print(time)
+if not done:
+    print(-1)
