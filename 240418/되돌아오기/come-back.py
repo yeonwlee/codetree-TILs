@@ -11,6 +11,7 @@ def find_return_to_zero_time(num_of_moving: int) -> int:
             if cur_x == 0 and cur_y == 0:
                 return time
     return -1
+    
 
 num_of_moving = int(input())
 
