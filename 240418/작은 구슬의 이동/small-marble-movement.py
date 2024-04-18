@@ -7,7 +7,7 @@ cur_row, cur_col = int(cur_row) - 1, int(cur_col) - 1 #인덱스를 맞춰주기
 
 #상/좌우/하
 dxs, dys = [0, -1, 1, 0], [-1, 0, 0, 1]
-direction_mapping_index = {"U": 0, "L": 1, "R": 2, "D": 1}
+direction_mapping_index = {"U": 0, "L": 1, "R": 2, "D": 3}
 cur_direction_index = direction_mapping_index[direction]
 
 
