@@ -10,7 +10,6 @@ for target_house_index, num_of_person_in_target_house in enumerate(house_person_
     for start_house_index, num_of_person_in_start_house in enumerate(house_person_info):
         if target_house_index != start_house_index:
             moving_distance = moving_distance + (abs(target_house_index - start_house_index) * num_of_person_in_start_house)
-    if moving_distance < min_moving_distance:
-        min_moving_distance = moving_distance
+    min_moving_distance = min(min_moving_distance, moving_distance)
 
 print(min_moving_distance)
