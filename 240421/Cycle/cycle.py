@@ -2,9 +2,9 @@ multiply_value, mod_value = map(int, input().split())
 
 
 cur_value = multiply_value
-results = set()
+results = []
 
 while (cur_value:=cur_value * multiply_value % mod_value) not in results:
-    results.add(cur_value)
+    results.append(cur_value)
    
-print(len(results))
+print(len(results[results.index(cur_value):]))
