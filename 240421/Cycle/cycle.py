@@ -6,7 +6,7 @@ results = set()
 cycle = 0
 
 while (cur_value:=cur_value * multiply_value % mod_value) not in results:
-    cycle += 1
     results.add(cur_value)
+    cycle += 1
 
 print(cycle)
