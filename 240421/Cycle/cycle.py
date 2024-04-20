@@ -1,6 +1,6 @@
 multiply_value, mod_value = map(int, input().split())
 
-results = set()
+results = set(multiply_value)
 cur_value = multiply_value
 cycle = 0
 
