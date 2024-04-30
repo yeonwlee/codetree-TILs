@@ -1,3 +1,5 @@
+## 스택으로 풀도록 고쳐보기
+
 def can_move_to_last_position(cur_row, cur_col) -> bool:
     if cur_row < height - 1 and cur_col < width - 1:
         if rect_info[cur_row][cur_col] != rect_info[height - 1][width - 1]:
