@@ -5,9 +5,16 @@
 
 source = list(input()) # 2진수
 
+is_changed = False
 for index, position_value in enumerate(source):
     if position_value == '0':
         source[index] = '1'
+        is_changed = True
         break
+
+
+if not is_changed: #아무것도 변경되지 않았다는 것은 모든 자리가 1이었음. 제일 낮은 자리수를 0으로 변경
+    source[-1] = '0'
+
 
 print(int(''.join(source), 2))
