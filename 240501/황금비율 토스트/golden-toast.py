@@ -122,10 +122,10 @@ for _ in range(num_of_command):
         if iterator.next is not None:
             iterator = iterator.next
     elif secret_command[0] == 'D': #바로 뒤에 있는 빵 제거
-        if iterator == doubly_linked_list.end():
+        if iterator == doubly_linked_list.end() or iterator == doubly_linked_list.begin():
             doubly_linked_list.del_node(iterator)
         elif iterator.next is not None:
-            iterator = doubly_linked_list.del_node(iterator.next)
+            doubly_linked_list.del_node(iterator.next)
     elif secret_command[0] == 'P': #가리키는 위치에 식빵 추가
         iterator = doubly_linked_list.add_node(iterator, secret_command[1])
 
