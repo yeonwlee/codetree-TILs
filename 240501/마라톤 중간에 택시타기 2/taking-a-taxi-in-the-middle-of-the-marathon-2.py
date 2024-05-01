@@ -1,5 +1,3 @@
-from functools import reduce
-
 # Manhattan Distance로 거리 구함
 def get_distance(check1:tuple[int], check2:tuple[int]) -> int:
     return abs(check1[0]-check2[0]) + abs(check1[1]-check2[1]) 
