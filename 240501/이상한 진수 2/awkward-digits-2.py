@@ -21,20 +21,14 @@
 
 ####완전탐색 연습하기
 
-def change_cur_position_value(num: int) -> int:
-    return 1 - num # 1->0 , 0->1
-
 
 source = list(map(int, list(input()))) # 2진수
 maximum_value = float('-inf')
 
-for index, value in enumerate(source):
-    source[index] = change_cur_position_value(source[index])
-
-    cur_value = int(''.join(map(str, source)), 2)
-    if cur_value > maximum_value:
-        maximum_value = cur_value
-    
-    source[index] = change_cur_position_value(source[index])
+for index in range(len(source)):
+    source[index] ^= 1  # XOR 연산을 사용해 숫자를 반전
+    current_value = int(''.join(map(str, source)), 2)
+    maximum_value = max(maximum_value, current_value)
+    source[index] ^= 1  # 원래 상태로 복구
 
 print(maximum_value)
