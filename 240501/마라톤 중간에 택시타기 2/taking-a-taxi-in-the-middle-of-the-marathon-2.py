@@ -8,6 +8,7 @@ checkpoints = [
     for _ in range(num_of_checkpoints)
 ]
 
+#TODO: 매번 거리를 계산하지 말고 한번 각 체크포인트간 거리를 계산한 뒤 해당 정보 활용하도록
 #각 체크포인트를 건너뛸 때 발생하는 절약된 거리를 계산하되, 이 절약된 거리가 최대인 체크포인트를 찾음
 max_saving_distance = float('-inf')
 skip_target_checkpoint = None
