@@ -1,17 +1,17 @@
 length_of_source_str = int(input())
 source = input()
 
-start_letter = 0
-completed_middle_letter = 0
-completed_all = 0
+count_C = 0
+count_CO = 0
+count_COW = 0
 
 # target: COW
 for index, letter in enumerate(source):
     if letter == "C":
-        start_letter += 1
+        count_C += 1
     elif letter == "O":
-        completed_middle_letter += start_letter
+        count_CO += count_C
     elif letter == "W":
-        completed_all += completed_middle_letter
+        count_COW += count_CO
 
-print(completed_all)
+print(count_COW)
