@@ -10,5 +10,4 @@ while True:
     if is_sorted:
         break
 
-for num in numbers:
-    print(num, end=" ")
+print(" ".join(map(str, numbers)))
