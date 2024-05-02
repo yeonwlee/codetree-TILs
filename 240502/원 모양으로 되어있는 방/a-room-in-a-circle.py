@@ -7,13 +7,14 @@ room_info = [
 ]
 
 whole_person = sum(room_info)
-distances = [0 for _ in range(num_of_rooms)]
+min_distance = float('inf')
 
 for start_room_index in range(num_of_rooms):
     remain_person = whole_person
+    cur_distance = 0
     for cur_room_index in range(start_room_index, start_room_index + num_of_rooms):
         remain_person -= room_info[(cur_room_index + num_of_rooms) % num_of_rooms]
-        distances[start_room_index] += remain_person
+        cur_distance += remain_person
+    min_distance = min(min_distance, cur_distance)
 
-
-print(min(distances))
+print(min_distance)
