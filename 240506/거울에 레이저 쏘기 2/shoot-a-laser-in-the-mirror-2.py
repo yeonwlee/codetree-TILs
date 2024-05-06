@@ -25,14 +25,10 @@ for i in range(width_of_grid):
 
 ########
 # /
-direction_1 = {"U": (-1, 1, "R"), "D": (1, -1, "L"), "L":(0, -1, "U"),"R":(1, -1, "D")}
+direction_1 = {"U": (-1, 1, "R"), "D": (1, -1, "L"), "L":(-1, 1, "U"),"R":(1, -1, "D")}
 
 # \
 direction_2 = {"U": (-1, -1, "L"), "D": (1, 1, "R"), "L":(1, 1, "D"),"R":(-1, -1, "U")}
-
-
-
-
 
 
 cur_row, cur_col, direction = positions[cur_position - 1]
