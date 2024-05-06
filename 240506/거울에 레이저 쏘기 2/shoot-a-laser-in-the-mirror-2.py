@@ -42,17 +42,19 @@ direction_2 = {
 
 
 cur_row, cur_col, direction = positions[cur_position - 1]
-count = 1
+count = 1 # 첫 시작 위치에서 튕기는 횟수
 
 while 0 <= cur_row < width_of_grid and 0 <= cur_col < width_of_grid:
     if mirror_grid[cur_row][cur_col] == "/":
         cur_row += direction_1[direction][0]
         cur_col += direction_1[direction][1]
         direction = direction_1[direction][2]
-    else:
+        count += 1
+    elif mirror_grid[cur_row][cur_col] == "\\":
         cur_row += direction_2[direction][0]
         cur_col += direction_2[direction][1]
         direction = direction_2[direction][2]
-    count += 1
+        count += 1
+    
 
 print(count)
