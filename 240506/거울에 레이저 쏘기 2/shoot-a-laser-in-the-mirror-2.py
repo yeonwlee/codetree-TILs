@@ -32,14 +32,18 @@ direction_2 = {"U": (0, -1, "L"), "D": (0, 1, "R"), "L":(1, 0, "D"),"R":(-1, 0, 
 
 ########
 
-cur_position = positions[cur_position - 1]
+cur_row, cur_col, direction = positions[cur_position - 1]
 count = 1
-while 0 <= cur_position[0] < width_of_grid and 0 <= cur_position[1] < width_of_grid:
-    cur_row, cur_col, direction = cur_position
+
+while 0 <= cur_row < width_of_grid and 0 <= cur_col < width_of_grid:
     if mirror_grid[cur_row][cur_col] == "/":
-        cur_position = (cur_row + direction_1[direction][0], cur_col + direction_1[direction][1], direction_1[direction][2]) 
+        cur_row += direction_1[direction][0]
+        cur_col += direction_1[direction][1]
+        direction = direction_1[direction][2]
     else:
-        cur_position = (cur_row + direction_2[direction][0], cur_col + direction_2[direction][1], direction_2[direction][2]) 
+        cur_row += direction_2[direction][0]
+        cur_col += direction_2[direction][1]
+        direction = direction_2[direction][2]
     count += 1
 
 print(count)
