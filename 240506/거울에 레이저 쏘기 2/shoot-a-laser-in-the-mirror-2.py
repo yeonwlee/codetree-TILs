@@ -43,7 +43,7 @@ direction_2 = {
 
 
 cur_row, cur_col, direction = positions[cur_position - 1]
-count = 1
+count = 1 
 
 while 0 <= cur_row < width_of_grid and 0 <= cur_col < width_of_grid:
     if mirror_grid[cur_row][cur_col] == "/":
