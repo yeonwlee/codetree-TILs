@@ -25,15 +25,18 @@ for i in range(width_of_grid):
 
 ########
 # /
-direction_1 = {"U": (0, 1, "R"), "D": (0, -1, "L"), "L":(-1, 0, "U"),"R":(1, 0, "D")}
+direction_1 = {"U": (-1, 1, "R"), "D": (1, -1, "L"), "L":(0, -1, "U"),"R":(1, -1, "D")}
 
 # \
-direction_2 = {"U": (0, -1, "L"), "D": (0, 1, "R"), "L":(1, 0, "D"),"R":(-1, 0, "U")}
+direction_2 = {"U": (-1, -1, "L"), "D": (1, 1, "R"), "L":(1, 1, "D"),"R":(-1, -1, "U")}
 
-########
+
+
+
+
 
 cur_row, cur_col, direction = positions[cur_position - 1]
-count = 1
+count = 0
 
 while 0 <= cur_row < width_of_grid and 0 <= cur_col < width_of_grid:
     if mirror_grid[cur_row][cur_col] == "/":
