@@ -35,16 +35,11 @@ def move_forward(row_range_info:tuple, col_range_info:tuple, direction:str) -> s
             else:
                 break
     cur_direction_index += 1
-    next_direction = direction_change[(cur_direction_index + 4) % 4]
-    next_row, next_col = cur_row + moving[next_direction][0], cur_col + moving[next_direction][1]
-    if is_in_rect(next_row, next_col) and is_visited[next_row][next_col]:
-        return "Done"
-    return next_direction
+    return direction_change[(cur_direction_index + 4) % 4]
 
 
 
-
-while is_can_move:
+while count != (num_of_cols * num_of_rows) + 1:
     if direction == "D":
         direction = move_forward((cur_row, num_of_rows, 1), (cur_col, cur_col + 1, 1), direction)
     elif direction == "R":
@@ -53,8 +48,6 @@ while is_can_move:
         direction = move_forward((cur_row, 0, -1), (cur_col, cur_col + 1, 1), direction)
     elif direction == "L":
         direction = move_forward((cur_row, cur_row + 1, 1), (cur_col, 0, -1), direction)
-    else:
-        is_can_move = not is_can_move
 
 
 for row in is_visited:
