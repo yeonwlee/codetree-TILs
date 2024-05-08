@@ -1,7 +1,7 @@
 # 기수 정렬, 오름차순
 def radix_sort(arr, position) -> None:
-    buckets = [[] for _ in range(10)]
     while position >= 0:
+        buckets = [[] for _ in range(10)]
         for num_str in arr:
             if len(num_str) > position:
                 buckets[int(num_str[position])].append(num_str[position])
