@@ -12,8 +12,9 @@ def radix_sort(arr, position) -> None:
 
 num_of_numbers = int(input())
 elements = list(input().split())
+max_length = len(max(elements, key=len))
 
-max_position = len(max(elements, key=len)) - 1
+elements = [num.zfill(max_length) for num in elements] # 자릿수가 부족한 경우 '0' 패딩을 채워줌
 
-elements = radix_sort(elements, max_position)
-print(' '.join(map(str, elements)))
+elements = radix_sort(elements, max_length - 1)
+print(' '.join(str(int(element)) for element in elements))
