@@ -26,7 +26,7 @@ for _ in range(2, num_of_rows * num_of_cols + 1):
             rect[cur_row][cur_col] = next(alphabet_gen)
             break
         else:
-            cur_direction_index = (cur_direction_index + 1 + 4) % 4
+            cur_direction_index = (cur_direction_index + 1) % 4
 
 
 for row in rect:
