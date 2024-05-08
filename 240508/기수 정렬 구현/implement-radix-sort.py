@@ -4,7 +4,7 @@ def radix_sort(arr, position) -> None:
     while position >= 0:
         for num_str in arr:
             if len(num_str) > position:
-                buckets[int(num_str)].append(num_str[position])
+                buckets[int(num_str[position])].append(num_str[position])
         arr = [num for pos in buckets for num in pos] # 1차원화
         position -= 1
     return arr
