@@ -3,7 +3,7 @@ from itertools import zip_longest
 
 def sum_each_position(num1:str, num2:str, num3:str) -> int:
     rev_num1, rev_num2, rev_num3 = map(reversed, [num1, num2, num3])
-    for cur_pos in zip_longest(rev_num1, rev_num2, rev_num3, fillvalue='0'):
+    for cur_pos in zip_longest(rev_num1, rev_num2, rev_num3, fillvalue='0'): # 하나의 자릿수가 짧아도 다른 수끼리는 자리수를 합할 수 있도록 zip_longest사용
         if sum(map(int, cur_pos)) >= 10:
             return -1 # 숫자의 범위가 모두 양수이기 때문에, 합해서 -1이 나올 일이 없음
     return sum(map(int, [num1, num2, num3]))
