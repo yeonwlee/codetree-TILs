@@ -35,8 +35,20 @@
 #######################################################
 
 # itertools의 combination과 정수 연산으로 한 풀이
-
 from itertools import combinations
+
+
+def sum_numbers(num_combo:tuple[int]) -> int:
+    num1, num2, num3 = num_combo
+    max_num_in_combo = max(num1, num2, num3) # 제일 큰 수를 찾음. 언제까지 자릿수끼리 계산해볼지를 결정하기 위함.
+    while max_num_in_combo > 0:
+        divmoded_num1, divmoded_num2, divmoded_num3 = map(lambda x: divmod(x, 10), [num1, num2, num3]) # divmod로 각 수를 10으로 나눈 몫과 나머지 구하기.
+        if sum([divmoded_num1[1], divmoded_num2[1], divmoded_num3[1]]) >= 10: # carry가 발생하면
+            return -1
+        num1, num2, num3 = divmoded_num1[0], divmoded_num2[0], divmoded_num3[0] # carry가 발생하지 않으면
+        max_num_in_combo, _ = divmod(max_num_in_combo, 10) # 반복문 처리 위함
+    return sum(num_combo)
+
 
 num_of_numbers = int(input())
 
@@ -48,18 +60,7 @@ numbers = [
 max_value = float('-inf')
 
 for num_combo in combinations(numbers, 3):
-    num1, num2, num3 = num_combo
-    max_num_in_combo = max(num1, num2, num3) # 제일 큰 수를 찾음. 언제까지 자릿수끼리 계산해볼지를 결정하기 위함.
-    while max_num_in_combo > 0:
-        divmoded_num1, divmoded_num2, divmoded_num3 = map(lambda x: divmod(x, 10), [num1, num2, num3]) # divmod로 각 수를 10으로 나눈 몫과 나머지 구하기.
-        if sum([divmoded_num1[1], divmoded_num2[1], divmoded_num3[1]]) >= 10: # carry가 발생하면
-            break
-        num1, num2, num3 = divmoded_num1[0], divmoded_num2[0], divmoded_num3[0] # carry가 발생하지 않으면
-        max_num_in_combo, _ = divmod(max_num_in_combo, 10) # 반복문 처리 위함
-    if max_num_in_combo == 0:
-        cur_value = sum(num_combo)
-    else: 
-        cur_value = -1
-    max_value = max(max_value, cur_value)
+    max_value = max(max_value, sum_numbers(num_combo))
             
+
 print(max_value)
