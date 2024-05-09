@@ -2,7 +2,7 @@ def sum_each_position(num1:str, num2:str, num3:str) -> int:
     rev_num1, rev_num2, rev_num3 = map(reversed, [num1, num2, num3])
     for cur_pos in zip(rev_num1, rev_num2, rev_num3):
         if sum(map(int, cur_pos)) >= 10:
-            return 0
+            return float('-inf')
     return sum(map(int, [num1, num2, num3]))
 
 
