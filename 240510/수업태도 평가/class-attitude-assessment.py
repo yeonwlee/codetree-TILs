@@ -1,3 +1,5 @@
+#TODO: 코드, 로직 재정비
+
 num_of_give_point_info = int(input())
 student_point = {'Bessie':0, 'Elsie':0, 'Daisy':0, 'Gertie':0, 'Annabelle':0, 'Maggie':0, 'Henrietta':0}
 for _ in range(num_of_give_point_info):
