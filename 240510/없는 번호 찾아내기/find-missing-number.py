@@ -5,11 +5,13 @@ numbers = [
 numbers.sort()
 answers = []
 
-num1 = numbers[0]
-for num2 in numbers[1:]:
-    if num2 - num1 != 1:
-        answers.append(num2 - 1)
-    num1 = num2
+count = 1
+for num in numbers:
+    if count != num:
+        answers.append(count)
+        count += 2
+    else:
+        count += 1
 
 print(answers[0])
 print(answers[1])
