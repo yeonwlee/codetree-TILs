@@ -9,9 +9,12 @@ ordered_result = sorted([(student, point) for student, point in student_point.it
 min_point = min(ordered_result,key=lambda x:x[1])[1]
 students_not_min_point = [(student, point) for student, point in ordered_result if point != min_point]
 
-min_point = min(students_not_min_point,key=lambda x:x[1])[1]
-max_point = max(students_not_min_point,key=lambda x:x[1])[1]
+min_point = max_point = 0
 
+if students_not_min_point:
+    min_point = min(students_not_min_point,key=lambda x:x[1])[1]
+    max_point = max(students_not_min_point,key=lambda x:x[1])[1]
+    
 if len(students_not_min_point) != 1 and min_point == max_point:
     print("Tie")
 else:
