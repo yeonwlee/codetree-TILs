@@ -8,4 +8,11 @@ for _ in range(num_of_give_point_info):
 ordered_result = sorted([(student, point) for student, point in student_point.items()], key=lambda x: x[1])
 min_point = min(ordered_result,key=lambda x:x[1])[1]
 students_not_min_point = [(student, point) for student, point in ordered_result if point != min_point]
-print(students_not_min_point[0][0])
+
+min_point = min(students_not_min_point,key=lambda x:x[1])[1]
+max_point = max(students_not_min_point,key=lambda x:x[1])[1]
+
+if len(students_not_min_point) != 1 and min_point == max_point:
+    print("Tie")
+else:
+    print(students_not_min_point[0][0])
