@@ -1,17 +1,8 @@
-numbers = [
-    int(input()) for _ in range(28)
-]
+numbers = {num for num in range(1, 31)}
 
-numbers.sort()
-answers = []
+for _ in range(28):
+    cur_input_num = int(input())
+    numbers.remove(cur_input_num)
 
-count = 1
-for num in numbers:
-    if count != num:
-        answers.append(count)
-        count += 2
-    else:
-        count += 1
-
-print(answers[0])
-print(answers[1])
+print(min(numbers))
+print(max(numbers))
