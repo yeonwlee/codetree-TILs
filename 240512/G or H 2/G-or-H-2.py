@@ -24,11 +24,16 @@ else:
     for _ in range(num_of_person):
         position, info = input().split()
         position = int(position)
+        max_position = max(position, max_position)
+        min_position = min(position, min_position)
         pos_info[position] = info
 
+    left_index = min_position
+    right_index = max_position
+   
     max_result = 0
-    for start_pos in range(len(pos_info)):
-        for end_pos in range(len(pos_info) - 1, start_pos - 1, -1):
+    for start_pos in range(left_index, right_index + 1):
+        for end_pos in range(right_index, start_pos - 1, -1):
             if result:=check_values(start_pos, end_pos):
                 max_result = max(result, max_result)
 
