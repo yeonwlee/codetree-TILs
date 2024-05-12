@@ -26,10 +26,10 @@ else:
         position = int(position)
         pos_info[position] = info
 
-max_result = 0
-for start_pos in range(len(pos_info)):
-    for end_pos in range(len(pos_info) - 1, start_pos - 1, -1):
-        if result:=check_values(start_pos, end_pos):
-            max_result = max(result, max_result)
+    max_result = 0
+    for start_pos in range(len(pos_info)):
+        for end_pos in range(len(pos_info) - 1, start_pos - 1, -1):
+            if result:=check_values(start_pos, end_pos):
+                max_result = max(result, max_result)
 
-print(max_result)
+    print(max_result)
