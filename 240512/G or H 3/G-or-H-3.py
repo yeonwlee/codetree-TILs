@@ -1,6 +1,6 @@
 num_of_person, size_of_picture = map(int, input().split())
 
-person = [0] * 100 # 최대 사람 수
+person = [0] * 10000 # 최대 사람 위치
 
 first_position = float('inf')
 last_position = float('-inf')
