@@ -4,17 +4,12 @@ from collections import Counter
 def check_values(left_index:int, right_index:int) -> int:
     cur_target_range = pos_info[left_index:right_index + 1]
     counter = Counter(cur_target_range)
-    del counter[None] # None인 경우 삭제
+    if None in counter:
+        del counter[None] # None인 경우 삭제
     if len(counter) == 1 or counter['G'] == counter['H']:
-        for index in range(len(cur_target_range)):
-            if cur_target_range[index] is not None:
-                left_index = index
-                break
-        for index in range(len(cur_target_range) - 1, -1, -1):
-            if cur_target_range[index] is not None:
-                right_index = index
-                break
-        return right_index - left_index
+        non_none_indices = [i for i, x in enumerate(cur_target_range) if x is not None]
+        if non_none_indices:
+            return non_none_indices[-1] - non_none_indices[0] # 실제 길이 반환
     return None
 
 
@@ -37,13 +32,12 @@ else:
     right_index = max_position
     while left_index < right_index:
         if result:=check_values(left_index, right_index):
-            print(result)
             break
         if result:=check_values(left_index + 1, right_index):
-            print(result)
             break
         if result:=check_values(left_index, right_index - 1):
-            print(result)
             break
         left_index += 1
         right_index -= 1
+
+    print(result)
