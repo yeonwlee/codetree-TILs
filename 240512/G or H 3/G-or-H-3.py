@@ -16,7 +16,7 @@ for _ in range(num_of_person):
 
 max_points = 0
 if (until_last_position:=last_position - size_of_picture + 1) < 0:
-    until_last_position = 1 
+    until_last_position = first_position + 1 
 for index in range(first_position, until_last_position):
     cur_range_points = 0
     if (until_last_of_cur_range:=index + size_of_picture + 1) > last_position:
