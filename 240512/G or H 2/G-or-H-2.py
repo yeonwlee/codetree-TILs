@@ -10,7 +10,7 @@ def check_values(left_index:int, right_index:int) -> int:
             if cur_target_range[index] is not None:
                 left_index = index
                 break
-        for index in range(len(cur_target_range) - 1, 0, -1):
+        for index in range(len(cur_target_range) - 1, -1, -1):
             if cur_target_range[index] is not None:
                 right_index = index
                 break
@@ -37,12 +37,13 @@ else:
     right_index = max_position
     while left_index < right_index:
         if result:=check_values(left_index, right_index):
+            print(result)
             break
         if result:=check_values(left_index + 1, right_index):
+            print(result)
             break
-        if reuslt:=check_values(left_index, right_index - 1):
+        if result:=check_values(left_index, right_index - 1):
+            print(result)
             break
         left_index += 1
         right_index -= 1
-
-    print(result)
