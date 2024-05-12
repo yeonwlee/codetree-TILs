@@ -14,10 +14,14 @@ for _ in range(num_of_person):
     elif point == 'H':
         person[person_position] = 2
 
-max_points = float('-inf')
-for index in range(first_position, last_position - size_of_picture + 1):
+max_points = 0
+if (until_last_position:=last_position - size_of_picture + 1) < 0:
+    until_last_position = 1 
+for index in range(first_position, until_last_position):
     cur_range_points = 0
-    for cur_index in range(index, index + size_of_picture + 1):
+    if (until_last_of_cur_range:=index + size_of_picture + 1) > last_position:
+        until_last_of_cur_range = last_position + 1
+    for cur_index in range(index, until_last_of_cur_range):
         cur_range_points += person[cur_index]
     max_points = max(max_points, cur_range_points)
 
