@@ -25,6 +25,8 @@ max_num_of_coins = window1 + window2
 window1_row = 0
 window1_col = 1
 while window1_row < height_of_grid:
+    window1 = sum(grid[window1_row][:3])
+    window1_col = 1
     for col_1 in range(window1_col, width_of_grid - 2):
         window1 = window1 - grid[window1_row][col_1 - 1] + grid[window1_row][col_1]
         if window2_row < height_of_grid:
