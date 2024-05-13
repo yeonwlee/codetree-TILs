@@ -36,7 +36,9 @@ while window1_row < height_of_grid:
     window1_row += 1
     if can_be_same_line:
         window2_row = window1_row
+        window2_col = 3
     else:
         window2_row = window1_row + 1
+        window2_col = 0
 
 print(max_num_of_coins)
