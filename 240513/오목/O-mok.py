@@ -14,7 +14,7 @@ def is_win(stone_color:int, row_index:int, col_index:int) -> tuple[int]:
             break
         row += 1
     else:
-        return ((row_index + row_index + 4) // 2, col_index // 2)
+        return ((row_index + row_index + 4) // 2, (col_index + col_index - 4) // 2)
 
     # 아래로 확인
     for row in range(row_index, row_index + 5):
