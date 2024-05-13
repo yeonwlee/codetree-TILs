@@ -4,7 +4,7 @@ def is_win(stone_color:int, row_index:int, col_index:int) -> tuple[int]:
         if omok[row_index][col] != stone_color:
             break
     else: 
-        return (row_index, (col_index + 5) // 2 + 1)
+        return (row_index, (col_index + col_index + 4) // 2)
     
     # 왼쪽 대각선 아래로 확인
     row = row_index
@@ -14,14 +14,14 @@ def is_win(stone_color:int, row_index:int, col_index:int) -> tuple[int]:
             break
         row += 1
     else:
-        return ((row_index + 5) // 2 + 1, col_index // 2 + 1)
+        return ((row_index + row_index + 4) // 2, col_index // 2)
 
     # 아래로 확인
     for row in range(row_index, row_index + 5):
         if omok[row][col_index] != stone_color:
             break
     else:
-        return ((row_index + 5) // 2 + 1, col_index)
+        return ((row_index + row_index + 4) // 2, col_index)
 
     # 오른쪽 대각선 아래로 확인
     row = row_index
@@ -30,7 +30,7 @@ def is_win(stone_color:int, row_index:int, col_index:int) -> tuple[int]:
             break
         row += 1
     else:
-        return ((row_index + 5) // 2 + 1, (col_index + 5) // 2 + 1)
+        return ((row_index + row_index + 4) // 2, (col_index + col_index + 4) // 2)
 
     return None
 
