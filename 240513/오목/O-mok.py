@@ -42,8 +42,8 @@ omok = [
 
 # 오른쪽, 왼쪽대각선 아래, 아래, 오른쪽대각선 아래
 done = False
-for row_index in range(len(omok) - 5):
-    for col_index in range(len(omok) - 5):
+for row_index in range(len(omok) - 4):
+    for col_index in range(len(omok) - 4):
         if omok[row_index][col_index] != 0:
             if (result:=is_win(omok[row_index][col_index], row_index, col_index)) is not None:
                 print(omok[row_index][col_index])
