@@ -1,7 +1,3 @@
-def are_they_can_be_with_same_line(one_cur_col: int, two_cur_col: int) -> bool:
-    return one_cur_col + 3 + two_cur_col + 3 <= width_of_grid
-
-
 width_of_grid = height_of_grid = int(input())
 
 grid = [
@@ -11,29 +7,17 @@ grid = [
 
 max_num_of_coins = 0
 
-window1_row = 0
-while window1_row < height_of_grid:
-    window1 = sum(grid[window1_row][:3])
-    window1_col = 1
-    if are_they_can_be_with_same_line(0, 3):
-        window2_row = window1_row
-        window2_col = 3
-    else:
-        window2_row = window1_row + 1
-        window2_col = 0
-    if window2_row < height_of_grid:
-        window2 = sum(grid[window2_row][window2_col:window2_col+3])
-        window2_col += 1
-    max_num_of_coins = max(max_num_of_coins, window1 + window2)
-    for col_1 in range(window1_col, width_of_grid - 2):
-        window1 = window1 - grid[window1_row][col_1 - 1] + grid[window1_row][col_1]
-        while window2_row < height_of_grid:
-            for col_2 in range(window2_col, width_of_grid - 2):
-                window2 = window2 - grid[window2_row][col_2 - 1] + grid[window2_row][col_2]
-                max_num_of_coins = max(max_num_of_coins, window1 + window2)
-            window2_row += 1
-            window2_col = 0
-    window1_row += 1
+for row_1 in range(height_of_grid):
+    for col_1 in range(width_of_grid - 2):
+        target1= sum(grid[row_1][col_1:col_1+3])
+        for row_2 in range(row_1, height_of_grid):
+            start_col = col_1 + 3 if row_1 == row_2 else 0
+            if start_col + 3 <= width_of_grid:   
+                for col_2 in range(start_col, width_of_grid - 2):
+                    target2 = sum(grid[row_2][col_2:col_2+3])
+                    max_num_of_coins = max(max_num_of_coins, target1 + target2)
+            else:
+                continue
    
 
 print(max_num_of_coins)
