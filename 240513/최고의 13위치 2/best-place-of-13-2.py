@@ -15,8 +15,6 @@ for row_1 in range(height_of_grid):
             if start_col + 3 <= width_of_grid:   
                 for col_2 in range(start_col, width_of_grid - 2): 
                     max_num_of_coins = max(max_num_of_coins, sum_grid[row_1][col_1]+sum_grid[row_2][col_2])
-            else:
-                continue
    
 
 print(max_num_of_coins)
