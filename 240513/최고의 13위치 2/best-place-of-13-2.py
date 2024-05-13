@@ -27,8 +27,9 @@ window1_col = 1
 while window1_row < height_of_grid:
     for col_1 in range(window1_col, width_of_grid - 2):
         window1 = window1 - grid[window1_row][col_1 - 1] + grid[window1_row][col_1]
-        window2 = sum(grid[window2_row][window2_col:window2_col+3])
-        window2_col += 1
+        if winodw2_row < height_of_grid:
+            window2 = sum(grid[window2_row][window2_col:window2_col+3])
+            window2_col += 1
         while window2_row < height_of_grid:
             for col_2 in range(window2_col, width_of_grid - 2):
                 window2 = window2 - grid[window2_row][col_2 - 1] + grid[window2_row][col_2]
