@@ -8,7 +8,7 @@ def is_win(stone_color:int, row_index:int, col_index:int) -> tuple[int]:
     
     # 왼쪽 대각선 아래로 확인
     row = row_index
-    end = col_index - 5 - 1 if col_index - 5 - 1 >= 0 else -1
+    end = col_index - 5 + 1 if col_index - 5 + 1 >= 0 else -1
     for col in range(col_index, end, -1):
         if omok[row][col] != stone_color:
             break
