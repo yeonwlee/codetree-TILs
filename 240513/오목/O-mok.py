@@ -6,31 +6,32 @@ def is_win(stone_color:int, row_index:int, col_index:int) -> tuple[int]:
     else: 
         return (row_index, (col_index + col_index + 4) // 2)
     
-    # 왼쪽 대각선 아래로 확인
-    row = row_index
-    end = col_index - 5 + 1 if col_index - 5 + 1 >= 0 else -1
-    for col in range(col_index, end, -1):
-        if omok[row][col] != stone_color:
-            break
-        row += 1
-    else:
-        return ((row_index + row_index + 4) // 2, (col_index + col_index - 4) // 2)
+    if row_index != 18: # 마지막 줄이 아니면 확인
+        # 왼쪽 대각선 아래로 확인
+        row = row_index
+        end = col_index - 5 + 1 if col_index - 5 + 1 >= 0 else -1
+        for col in range(col_index, end, -1):
+            if omok[row][col] != stone_color:
+                break
+            row += 1
+        else:
+            return ((row_index + row_index + 4) // 2, (col_index + col_index - 4) // 2)
 
-    # 아래로 확인
-    for row in range(row_index, row_index + 5):
-        if omok[row][col_index] != stone_color:
-            break
-    else:
-        return ((row_index + row_index + 4) // 2, col_index)
+        # 아래로 확인
+        for row in range(row_index, row_index + 5):
+            if omok[row][col_index] != stone_color:
+                break
+        else:
+            return ((row_index + row_index + 4) // 2, col_index)
 
-    # 오른쪽 대각선 아래로 확인
-    row = row_index
-    for col in range(col_index, col_index + 5):
-        if omok[row][col] != stone_color:
-            break
-        row += 1
-    else:
-        return ((row_index + row_index + 4) // 2, (col_index + col_index + 4) // 2)
+        # 오른쪽 대각선 아래로 확인
+        row = row_index
+        for col in range(col_index, col_index + 5):
+            if omok[row][col] != stone_color:
+                break
+            row += 1
+        else:
+            return ((row_index + row_index + 4) // 2, (col_index + col_index + 4) // 2)
 
     return None
 
@@ -42,7 +43,7 @@ omok = [
 
 # 오른쪽, 왼쪽대각선 아래, 아래, 오른쪽대각선 아래
 done = False
-for row_index in range(len(omok) - 4):
+for row_index in range(len(omok)):
     for col_index in range(len(omok) - 4):
         if omok[row_index][col_index] != 0:
             if (result:=is_win(omok[row_index][col_index], row_index, col_index)) is not None:
