@@ -17,7 +17,7 @@ def is_win(stone_color:int, row_index:int, col_index:int) -> tuple[int]:
 
     # 아래로 확인
     for row in range(row_index, row_index + 5):
-        if omok[row] != stone_color:
+        if omok[row][col_index] != stone_color:
             break
     else:
         return ((row_index + 5) // 2 + 1, col_index)
