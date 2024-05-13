@@ -1,3 +1,4 @@
+# 이걸 dx, dy를 활용해 (전체방향x, 국소방향) 수정해보자
 def is_win(stone_color:int, row_index:int, col_index:int) -> tuple[int]:
     # 오른쪽으로 확인
     for col in range(col_index, col_index + 5):
