@@ -1,3 +1,4 @@
+### 함수호출 풀이 -- 완전탐색에서는 되도록 함수를 호출하기보다 직접적인 연산을 하는게 속도면에서 나을 것 같다
 # def is_within_range(value, target):
 #     return abs(value - target) <= 2 or abs(value - target) >= max_number_of_range - 2
 
