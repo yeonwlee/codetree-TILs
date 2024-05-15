@@ -1,8 +1,7 @@
 def find_valid_value(cur_value:int) -> set[int]:
     valid_set = set([cur_value])
-    for value in range(1, 3):
-        valid_set.add((cur_value + value + max_number_of_range) % max_number_of_range)
-        valid_set.add((cur_value - value + max_number_of_range) % max_number_of_range)
+    for value in range(-2, 3):
+        valid_set.add((cur_value + value - 1) % max_number_of_range + 1)
     return valid_set
 
 def check_valid_combi(base_combi:tuple[int], cur_combi:tuple[int]) -> bool:
