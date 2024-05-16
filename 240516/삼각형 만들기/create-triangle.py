@@ -18,7 +18,7 @@ for first in range(len(points)):
             x3, y3 = points[third]
             if len(set([x1, x2, x3])) == 2 and len(set([y1, y2, y3])) == 2:
                 max_area = max(max_area, 
-                            (max([x1, x2, x3]) - min([x1, x2, x3])) * (max([y1, y2, y3]) - min([y1, y2, y3]))
+                            (abs(max([x1, x2, x3]) - min([x1, x2, x3]))) * abs((max([y1, y2, y3]) - min([y1, y2, y3])))
                         )
             
 
