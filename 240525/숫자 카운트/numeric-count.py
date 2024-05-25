@@ -11,7 +11,8 @@ possible_combinations = set()
 for first in range(1, 10):
     for second in range(1, 10):
         for third in range(1, 10):
-            possible_combinations.add((first, second, third))
+                if first != second and second != third and first != third:
+                    possible_combinations.add((first, second, third))
 
 
 for trying in try_info:
