@@ -1,6 +1,4 @@
-from itertools import permutations
-
-
+# itertools.permutations를 사용하지 않음
 try_num = int(input())
 try_info = [
     tuple(map(int, input().split()))
