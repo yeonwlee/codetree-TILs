@@ -14,5 +14,7 @@ while budget > 0:
         break
     elif budget - student_present_info[-1] >= 0:
         budget -= student_present_info.pop()
+    else:
+        break
 
 print(num_of_whole_students - len(student_present_info))
