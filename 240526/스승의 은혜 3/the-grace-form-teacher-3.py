@@ -4,19 +4,21 @@ student_present_info = [
     for _ in range(num_of_student)
 ]
 
-whole_num_of_students = len(student_present_info)
-student_present_info.sort(key=lambda x: [x[0] // 2 + x[1], x[1]], reverse=True)
+student_present_info.sort(key=lambda x: [x[0] + x[1], x[1]])
+max_student_num = 0
 
-while budget > 0 and student_present_info:
-    price, send_fee = student_present_info[-1]
-    if budget - price - send_fee > 0:
-        student_present_info.pop()
-        budget -= (price + send_fee)
-    elif budget - (price // 2) - send_fee > 0: # 선물 반 값 쿠폰 사용
-        student_present_info.pop()
-        budget -= (price // 2 + send_fee)
-        break
-    else: # 어떻든 선물을 못 사는 경우
-        break
-
-print(whole_num_of_students - len(student_present_info))
+for student_index in range(len(student_present_info) - 1, -1, -1):
+    price, send_fee = student_present_info[student_index]
+    apply_coupon_price = price // 2 + send_fee
+    sum_price = apply_coupon_price
+    students = 1
+    for student_index2 in range(len(student_present_info)):
+        if student_index == student_index2:
+            continue
+        sum_price += sum(student_present_info[student_index2])
+        if sum_price >= budget:
+            max_student_num = max(max_student_num, students)
+            break
+        students += 1
+        
+print(max_student_num)
