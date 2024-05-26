@@ -6,7 +6,7 @@ student_present_info = [
 
 whole_num_of_students = len(student_present_info)
 # 선물값과 배송비를 합친 값, 선물 반값 쿠폰을 썼을 때의 값으로 정렬(역순. 거꾸로 꺼내기 위함)
-student_present_info.sort(key=lambda x: [x[0] // 2 + x[1], x[0] + x[1]], reverse=True)
+student_present_info.sort(key=lambda x: [x[0] + x[1], x[1]], reverse=True)
 
 while budget > 0 and student_present_info:
     price, send_fee = student_present_info[-1]
