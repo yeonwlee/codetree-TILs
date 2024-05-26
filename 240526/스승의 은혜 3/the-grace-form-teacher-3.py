@@ -9,7 +9,6 @@ whole_num_of_students = len(student_present_info)
 student_present_info.sort(key=lambda x: [x[0] // 2 + x[1], x[0] + x[1]], reverse=True)
 while budget > 0 and student_present_info:
     price, send_fee = student_present_info[-1]
-$0
     if budget - price - send_fee > 0:
         student_present_info.pop()
         budget -= (price + send_fee)
