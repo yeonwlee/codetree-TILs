@@ -4,7 +4,8 @@ devs = list(map(int, input().split()))
 
 devs.sort()
 teams = []
-for index in range(len(devs) - 1, len(devs) // 2 - 1, -1):
+
+for index in range(len(devs) // 2):
     teams.append(devs[index] + devs[len(devs) - 1 - index])
 
 print(max(teams) - min(teams))
