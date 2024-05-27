@@ -23,4 +23,7 @@ for first_team in possibile_team_for_two:
             worst = min([first_team_sum, second_team_sum, third_team_sum])
             difference = min(difference, best - worst)
 
-print(difference)
+if difference == float('inf'):
+    print(-1)
+else:
+    print(difference)
