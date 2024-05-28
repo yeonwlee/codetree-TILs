@@ -23,8 +23,11 @@ for sick_info in sick_record:
     person, sick_time = sick_info # index 아님
     suspect_cheese[person].update(cheese for eater, cheese, eating_time in eating_cheese_record if eater == person and eating_time < sick_time)
 
+# 아픈 사람들이 아프기 전에 공통적으로 먹었던 치즈
+common_suspect_cheeses = reduce(lambda x, y: x & y, suspect_cheese.values())
+
 # 아, 한 사람이 여러 번 먹을 수 있음. 그래서 치즈를 먹은 정보를 단순히 세면 안 됨.
-for maybe_rot_cheese in reduce(lambda x, y: x & y, suspect_cheese.values()):
+for maybe_rot_cheese in common_suspect_cheeses:
     max_num_of_sick_person = max(max_num_of_sick_person, len({eater for eater, cheese, _ in eating_cheese_record if cheese == maybe_rot_cheese}))
 
 print(max_num_of_sick_person)
