@@ -35,9 +35,11 @@ bombs = [
 
 # 폭탄의 번호는 0부터 시작. 폭발할 폭탄 중 번호가 가장 큰 번호를 출력. 없으면 -1
 max_bomb_num = -1
-
+    
 for start_bomb_index in range(num_of_bombs - explosion_distance):
-    for compare_bomb_index in range(start_bomb_index + 1, start_bomb_index + explosion_distance + 1):
+    if (range_end:= start_bomb_index + 1 + explosion_distance) >= num_of_bombs:
+        range_end = num_of_bombs
+    for compare_bomb_index in range(start_bomb_index + 1, range_end):
         if bombs[start_bomb_index] == bombs[compare_bomb_index]:
             max_bomb_num = max(max_bomb_num, bombs[start_bomb_index]) # 폭발할 폭탄 중 번호가 가장 큰 번호 갱신
 
