@@ -35,8 +35,6 @@ for cur_num in range(low, high + 1):
     number_list = list(map(int, str(cur_num)))
     if len(set(number_list)) == 2 and min(Counter(number_list).values()) == 1:
         num_of_interesting_numbers += 1
-    else:
-        continue
         
 
 print(num_of_interesting_numbers)
