@@ -1,4 +1,6 @@
 ##### 풀이1
+## 최소 자릿수와 최대 자릿수 범위 내에서
+## 모든 숫자를 동일하게 만든 뒤, 각 자리수에서 하나씩의 숫자만 변경하는 로직
 # # str에서 특정 인덱스의 값을 변경한 str 리턴
 # def replace_char_at_index(source:str, target_index:int, replace_char:str) -> str:
 #     return source[:target_index] + replace_char + source[target_index + 1:]   
