@@ -16,18 +16,14 @@ for coord in coords:
 set_x_coord = set(coords_dict['x'])
 set_y_coord = set(coords_dict['y'])
 
-list_x_coord_not_dupled = list(set_x_coord)
-
 is_possible = False
-if len(set_x_coord) <= 3:
-    for num_of_y_line in range(len(list_x_coord_not_dupled)):
-        x_coord_combies = list(combinations(set_x_coord, num_of_y_line))
-        for cur_y_lines in x_coord_combies:
-            y_coord = {coords_dict['y'][index] for index, number in enumerate(coords_dict['x']) if number in cur_y_lines}
-            remain_y_coord = y_coord - {coords_dict['y'][index] for index, number in enumerate(coords_dict['x']) if number not in cur_y_lines}
-            if 3 - (num_of_y_line + len(remain_y_coord)) >= 0:
-                is_possible = True
-                break
+for num_of_y_line in range(min(len(set_x_coord)+1, 4)):
+    x_coord_combies = list(combinations(set_x_coord, num_of_y_line))
+    for cur_y_lines in x_coord_combies:
+        remain_y_coord = {coords_dict['y'][index] for index, number in enumerate(coords_dict['x']) if number not in cur_y_lines}
+        if 3 - num_of_y_line - len(remain_y_coord) >= 0:
+            is_possible = True
+            break
 if is_possible:
     print(1)
 else:
