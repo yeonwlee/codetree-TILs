@@ -27,15 +27,14 @@ ice_height_info = [
 max_num_of_ice = 0
 # 해수면 레벨
 for sea_level in range(1, max(ice_height_info) - 1):
-    cur_num_of_ice = 1
-    in_ice = False
-    for ice_index in range(1, len(ice_height_info)):
-        if ice_height_info[ice_index] < sea_level:
-            if not in_ice:
-                cur_num_of_ice += 1
-                in_ice = True
-        else:
-            in_ice = False
+    cur_num_of_ice = 0
+    
+    if ice_height_info[0] > sea_level:
+        cur_num_of_ice += 1
+
+    for ice_index in range(1, num_of_ice):
+        if ice_height_info[ice_index] > sea_level and ice_height_info[ice_index - 1] <= sea_level:
+            cur_num_of_ice += 1
 
     max_num_of_ice = max(max_num_of_ice, cur_num_of_ice)
 
