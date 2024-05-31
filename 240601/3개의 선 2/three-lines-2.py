@@ -22,8 +22,9 @@ is_possible = False
 for num_of_y_line in range(len(list_x_coord_not_dupled)):
     x_coord_combies = list(combinations(set_x_coord, num_of_y_line))
     for cur_y_lines in x_coord_combies:
-        y_coord = {coords_dict['y'][index] for index, number in enumerate(coords_dict['x']) if number not in cur_y_lines}
-        if 3 - (num_of_y_line + len(y_coord)) >= 0:
+        y_coord = {coords_dict['y'][index] for index, number in enumerate(coords_dict['x']) if number in cur_y_lines}
+        remain_y_coord = y_coord - {coords_dict['y'][index] for index, number in enumerate(coords_dict['x']) if number not in cur_y_lines}
+        if 3 - (num_of_y_line + len(remain_y_coord)) >= 0:
             is_possible = True
             break
 if is_possible:
