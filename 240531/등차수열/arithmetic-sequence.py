@@ -14,7 +14,7 @@ for number in range(-max_num, max_num + max_num - min_num):
         first_num = numbers[a_index]
         for b_index in range(a_index + 1, len(numbers)):
             third_num = numbers[b_index]
-            if abs(first_num - number) == abs(b_index - number):
+            if abs(number - first_num) == abs(third_num - number):
                 cur_count_of_arithmetic_sequence += 1
     max_count_of_arithmetic_sequence = max(max_count_of_arithmetic_sequence, cur_count_of_arithmetic_sequence)
 
