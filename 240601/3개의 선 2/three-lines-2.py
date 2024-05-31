@@ -17,7 +17,7 @@ set_x_coord = set(coords_dict['x'])
 set_y_coord = set(coords_dict['y'])
 
 is_possible = False
-for num_of_y_line in range(min(len(set_x_coord)+1, 4)): # 최소 set의 개수 만큼, 최대 3개
+for num_of_y_line in range(min(len(set_x_coord)+1, 4)): # 0 ~ min(x좌표 set의 개수, 3개) 
     x_coord_combies = list(combinations(set_x_coord, num_of_y_line)) # 해당 선분 수 만큼의 조합 만들기
     for cur_y_lines in x_coord_combies:
         # 해당 선분에서 덮어씌워질 점 외에, y좌표를 set으로 모음
