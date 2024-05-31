@@ -8,8 +8,8 @@ papers_pos_info = [
 ]
 
 grid = [
-    [0] * 91
-    for _ in range(91)
+    [0] * 100
+    for _ in range(100)
 ]
 
 for under_left_x, under_left_y in papers_pos_info:
