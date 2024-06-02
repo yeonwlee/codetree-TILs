@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.readline
 
 tictactoe = [
-    list(input().strip())
+    list(input().rstrip())
     for _ in range(3)
 ]
 
