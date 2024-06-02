@@ -5,8 +5,8 @@ points = [
 ]
 
 min_largest_number_of_points = float('inf')
-for x in range(1, 101):
-    for y in range(1, 101):
+for x in range(0, 102, 2):
+    for y in range(0, 102, 2):
         area_points = [0, 0, 0, 0]
         for region_x, region_y in points:
             if region_x < x and region_y > y:
