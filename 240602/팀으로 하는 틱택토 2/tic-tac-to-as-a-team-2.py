@@ -1,7 +1,9 @@
-from itertools import zip_longest
+import sys
+
+input = sys.stdin.readline
 
 tictactoe = [
-    list(input())
+    list(input().strip())
     for _ in range(3)
 ]
 
