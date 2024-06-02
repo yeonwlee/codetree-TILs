@@ -16,3 +16,4 @@ for length in range(1, source_len // 2 + 2): # 두 번 이상 나타날 수 있�
             break
     if not is_in_source:
         print(length) # 문자열의 길이 출력
+        break
