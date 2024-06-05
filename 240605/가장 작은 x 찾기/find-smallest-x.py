@@ -19,7 +19,7 @@ for x in range(start, clue_range[1] + 1, 2): # 짝수만 확인
     check_num = x
     is_valid = True
     for count_num in range(repeat_num - 2, -1, -1): # 이전 범위들에 해당 값이 속하는 지확인
-        check_num //= 2
+        check_num /= 2
         if not (clues[count_num][0] <= check_num <= clues[count_num][1]): # 속하지 않으면 
             is_valid = False
             break
