@@ -52,7 +52,7 @@ pairs = [
 
 max_pair_count: int = 0
 for num1 in range(1, num_of_pair + 1):
-    for num2 in range(1, num_of_pair + 1):
+    for num2 in range(num1 + 1, num_of_pair + 1):
         max_pair_count: int = max(max_pair_count, count_same_pair(num1, num2))
 
 print(max_pair_count)
