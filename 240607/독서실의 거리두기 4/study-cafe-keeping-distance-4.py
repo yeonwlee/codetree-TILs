@@ -1,12 +1,11 @@
 def get_nearest_distance()-> int :
     min_distance: int = float('inf')
-    left: int = 0
-    for right in range(num_of_seat):
-        if seat_info[right] == '1' and right != 0:
-            min_distance  = min(min_distance, right - left)
+    left: int = -1 
+    for right in range(num_of_seat): # '좌석에 앉은 사람' 간의 최소 거리임. 
+        if seat_info[right] == '1':
+            if left != -1:
+                min_distance  = min(min_distance, right - left)
             left = right
-    if left != right:
-        min_distance = min(min_distance, num_of_seat - left)
 
     return min_distance 
 
