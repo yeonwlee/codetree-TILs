@@ -9,7 +9,7 @@ for num in range(cur_stone_value, 101): # 조건 범위, 최대 값 가정
     for index in range(cur_pos + 1, num_of_stone):
         if abs(cur_pos - index) <= max_jump_distance:
             if stones[index] <= num:
-                cur_pos += abs(cur_pos - index)
+                cur_pos = index
         else:
             break
     if cur_pos == num_of_stone - 1: # 마지막 돌에 위치함
