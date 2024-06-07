@@ -1,3 +1,4 @@
+import sys
 from itertools import combinations
 # A ≤ B ≤ C ≤ D 찾아내기
 
@@ -13,10 +14,10 @@ for a_index in range(15):
             c = infos[c_index]
             for d_index in range(c_index + 1, 15):
                 d = infos[d_index]
+                # a + b, b + c, c + d, d + a, a + c, b + d, a + b + c, a + b + d, a + c + d, b + c + d, a + b + c + d
                 sum_values = [sum(num_combi) for pair_num in range(2, 5) for num_combi in combinations([a, b, c, d], pair_num)]
-                remain_source = [value for index, value in enumerate(infos) if index not in {a_index, b_index, c_index, d_index}]
+                sum_values.extend([a, b, c, d])
                 sum_values.sort()
-                remain_source.sort()
-                if sum_values == remain_source:
+                if sum_values == infos:
                     print(a, b, c, d)
-                    exit()
+                    sys.exit()
