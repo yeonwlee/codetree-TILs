@@ -16,7 +16,7 @@ formation, number, target_formation = input().split()
 formation, target_formation = int(formation), int(target_formation)
 
 # 숫자 범위
-number_range = {num:num for num in range(10)}
+number_range = {num:str(num) for num in range(10)}
 number_range.update({index:chr(ascii) for index,ascii in enumerate(range(ord('a'), ord('z') + 1), start=10)})
 reverse_number_range = {value:key for key, value in number_range.items()}
 
