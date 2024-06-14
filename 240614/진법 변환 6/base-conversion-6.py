@@ -12,7 +12,7 @@ def change_digit_to_target_formation(number:int, formation:int) -> str:
     while changed_number > formation: 
         changed_number, remain = divmod(changed_number, formation)
         answer.append(str(number_range[remain]))
-    answer.append(str(changed_number))
+    answer.append(str(number_range[changed_number]))
     return ''.join(reversed(answer)) 
 
 
