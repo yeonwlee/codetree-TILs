@@ -1,15 +1,19 @@
 def change_to_digit(number:str, formation:int) -> int:
     digit = 0
-    for pow_value, num_pos in enumerate(number):
+    for pow_value, num_pos in enumerate(number[::-1]):
         remain = reverse_number_range[num_pos]
-        digit += remain * pow(formation, pow_value)
-    
+        digit += (remain * pow(formation, pow_value))
     return digit
     
 
 def change_digit_to_target_formation(number:int, formation:int) -> str:
-    front, remain = divmod(number, formation)
-    return str(front) + str(number_range[remain])
+    changed_number = number
+    answer = []
+    while changed_number > formation: 
+        changed_number, remain = divmod(changed_number, formation)
+        answer.append(str(number_range[remain]))
+    answer.append(str(changed_number))
+    return ''.join(reversed(answer)) 
 
 
 formation, number, target_formation = input().split()
