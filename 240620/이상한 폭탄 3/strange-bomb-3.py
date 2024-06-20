@@ -19,7 +19,7 @@ bombs = [
 exploded_bomb_pos = [0 for _ in range(num_of_bomb)]
 explosion_count = defaultdict(int)
 
-for start_index in range(num_of_bomb - explosion_distance):
+for start_index in range(num_of_bomb - explosion_distance - 1):
     bomb_counter_in_range = Counter(bombs[start_index:start_index + explosion_distance + 1])
     explosion_bomb_id = {bomb_id for bomb_id, count in bomb_counter_in_range.items() if count >= 2}
     if explosion_bomb_id:
