@@ -19,7 +19,7 @@ bombs = [
 exploded_bomb_pos = [0 for _ in range(num_of_bomb)]
 explosion_count = defaultdict(int)
 
-for start_index in range(num_of_bomb - explosion_distance - 1):
+for start_index in range(num_of_bomb - explosion_distance):
     bomb_counter_in_range = Counter(bombs[start_index:start_index + explosion_distance + 1])
     explosion_bomb_id = {bomb_id for bomb_id, count in bomb_counter_in_range.items() if count >= 2}
     if explosion_bomb_id:
@@ -35,5 +35,5 @@ else:
     # 터지는 폭탄을 번호 별로 수 세기위함
     explosion_count = Counter(explosion_count)
     # 가장 빈도수가 높은 것, 빈도가 같으면 폭탄 번호가 큰 순으로 정렬
-    sorted_answer = sorted(explosion_count.most_common(), key=lambda x: (x[1], -x[0]))
+    sorted_answer = sorted(explosion_count.most_common(), key=lambda x: (-x[1], -x[0]))
     print(sorted_answer[0][0])
