@@ -15,7 +15,7 @@ hills = [
 # 0 ≤ 언덕의 높이 ≤ 100
 
 hills.sort()
-low_hill, high_hill = hill[0], hill[-1]
+low_hill, high_hill = hills[0], hills[-1]
 
 min_cost = float('inf')
 for height in range(high_hill - 17):
