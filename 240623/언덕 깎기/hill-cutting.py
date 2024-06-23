@@ -1,0 +1,35 @@
+import sys
+
+input = sys.stdin.readline
+
+num_of_hill = int(input().rstrip())
+
+hill = [
+    int(input().rstrip())
+    for _ in range(num_of_hill)
+]
+
+# 가장 높은 언덕과 가장 낮은 언덕의 높이차가 17 이하가 되도록 만들어야 할 때, 
+# 들어가는 최소 비용을 구하는 프로그램을 작성해보세요.
+
+# 0 ≤ 언덕의 높이 ≤ 100
+
+hill.sort()
+low_hill, high_hill = hill[0], hill[-1]
+
+min_cost = float('inf')
+for height in range(high_hill - 17):
+    min_height = height
+    max_height = height + 17
+    current_cost = 0
+
+    for one_hill in hill:
+        if one_hill < min_height:
+            current_cost += (min_height - one_hill) ** 2
+        elif one_hill > max_height:
+            current_cost += (max_height - one_hill) ** 2
+        
+    min_cost = min(min_cost, current_cost)
+
+
+print(min_cost)
