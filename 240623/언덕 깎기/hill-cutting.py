@@ -17,7 +17,7 @@ hills = [
 hills.sort()
 low_hill, high_hill = hills[0], hills[-1]
 
-min_cost = 0
+min_cost = float('inf')
 if high_hill - low_hill > 17:
     for height in range(high_hill - 17):
         min_height = height
@@ -31,6 +31,7 @@ if high_hill - low_hill > 17:
                 current_cost += (max_height - hill) ** 2 # 내리기
             
         min_cost = min(min_cost, current_cost)
-
-
+else:
+    min_cost = 0
+    
 print(min_cost)
