@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 num_of_hill = int(input().rstrip())
 
-hill = [
+hills = [
     int(input().rstrip())
     for _ in range(num_of_hill)
 ]
@@ -14,7 +14,7 @@ hill = [
 
 # 0 ≤ 언덕의 높이 ≤ 100
 
-hill.sort()
+hills.sort()
 low_hill, high_hill = hill[0], hill[-1]
 
 min_cost = float('inf')
@@ -23,11 +23,11 @@ for height in range(high_hill - 17):
     max_height = height + 17
     current_cost = 0
 
-    for one_hill in hill:
-        if one_hill < min_height:
-            current_cost += (min_height - one_hill) ** 2
-        elif one_hill > max_height:
-            current_cost += (max_height - one_hill) ** 2
+    for hill in hills:
+        if hill < min_height:
+            current_cost += (min_height - hill) ** 2 # 올리기
+        elif hill > max_height:
+            current_cost += (max_height - hill) ** 2 # 내리기
         
     min_cost = min(min_cost, current_cost)
 
