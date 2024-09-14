@@ -16,7 +16,8 @@ num = int(input())
 # bottom-up
 dp = [0] * (num + 1)
 dp[2] = 1
-for cur_num in range(3, num + 1):
+dp[3] = 1
+for cur_num in range(4, num + 1):
     dp[cur_num] = dp[cur_num - 2] + dp[cur_num - 3] 
 
 print(dp[num] % 10007)
