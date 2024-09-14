@@ -16,7 +16,9 @@ num = int(input())
 # bottom-up
 dp = [0] * (num + 1)
 dp[2] = 1
-dp[3] = 1
+if num >= 3:
+    dp[3] = 1
+
 for cur_num in range(4, num + 1):
     dp[cur_num] = dp[cur_num - 2] + dp[cur_num - 3] 
 
