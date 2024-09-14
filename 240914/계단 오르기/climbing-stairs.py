@@ -1,6 +1,8 @@
 num = int(input())
 
 def count_case(cur_num:int, memo:dict[int]={}) -> int:
+    if cur_num in memo.keys():
+        return memo[cur_num]
     if cur_num < 0:
         return 0
     elif cur_num == 0:
